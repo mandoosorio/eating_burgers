@@ -17,4 +17,21 @@ $(function() {
             location.reload();
         });
     });
+
+    $(".change-devoured").on("click", function(event) {
+        var id = $(this).data("id");
+        var newDevour = $(this).data("newdevoured");
+
+        var newDevourState = {
+            devoured: newDevour
+        };
+
+        $.ajax("/api/burgers/" + id, {
+            type: "PUT",
+            data: newDevourState
+        }).then(function() {
+            console.log("changed state to", newDevour);
+            location.reload();
+        });
+    });
 });
