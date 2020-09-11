@@ -70,6 +70,19 @@ var orm = {
 
             callback(result);
         });
+    },
+    delete: function(table, condition, callback) {
+        var queryString = "DELETE FROM " + table;
+        queryString += " WHERE ";
+        queryString += condition;
+
+        connection.query(queryString, function(err, result) {
+            if (err) {
+                throw err;
+            }
+
+            callback(result);
+        });
     }
 };
 
