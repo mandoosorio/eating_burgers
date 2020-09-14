@@ -7,7 +7,6 @@ router.get("/", function(req, res) {
         var handleBarsObject = {
             burgers: data
         };
-        console.log(handleBarsObject);
         res.render("index", handleBarsObject);
     });
 });
@@ -24,8 +23,6 @@ router.post("/api/burgers", function(req, res) {
 
 router.put("/api/burgers/:id", function(req, res) {
     var condition = "id = " + req.params.id;
-    console.log("req", req);
-    console.log("condition", condition);
 
     burger.update({
         devoured: req.body.devoured

@@ -1,7 +1,9 @@
 $(function() {
     $(".create-form").on("submit", function(event) {
         event.preventDefault();
-        console.log("clicked");
+        if ($("#bur").val().trim() == "") {
+            return;
+        }
     
         var newBurger = {
             burger_name: $("#bur").val().trim(),
@@ -20,7 +22,6 @@ $(function() {
     $(".change-devoured").on("click", function(event) {
         var id = $(this).data("id");
         var newDevour = $(this).data("newdevoured");
-        console.log("new devoured", newDevour);
 
         var newDevourState = {
             devoured: newDevour
@@ -41,7 +42,6 @@ $(function() {
         $.ajax("/api/burgers/" + id, {
             type: "DELETE"
         }).then(function() {
-            console.log("deleted cat", id);
             location.reload();
         });
     });

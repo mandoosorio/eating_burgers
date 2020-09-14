@@ -1,31 +1,44 @@
-<h1>Burgers</h1>
+<div class="main-title container">
+    <img src="/assets/img/seeds.png">
+    <div id="title">Burgers</div>
+</div>
 
-<h2>Burgers Ordered</h2>
+<div id="lettuce"></div>
 
-<ul>
-    {{#each burgers}}
-        {{#unless devoured}}
-            {{> burgers/burger_block devoured=true}}
-        {{/unless}}
-    {{/each}}
-</ul>
+<div class="form">
+    <h2>Place Your Order</h2>
+    <form class="create-form">
+        <div class="form-group">
+            <label for="bur">Burger Name:</label>
+            <input type="text" id="bur" name="name">
+        </div>
+    
+        <button type="submit" id="add">Add Order</button>
+    </form>
+</div>
 
-<h2>Burgers Eaten</h2>
+<div class="orders-section">
+    <h2 id="ordered">Burgers Ordered</h2>
+    
+    <ul>
+        {{#each burgers}}
+            {{#unless devoured}}
+                {{> burgers/burger_block devoured=true}}
+            {{/unless}}
+        {{/each}}
+    </ul>
+</div>
 
-<ul>
-    {{#each burgers}}
-        {{#if devoured}}
-            {{> burgers/burger_block devoured=false}}
-        {{/if}}
-    {{/each}}
-</ul>
+<div class="devoured-section">
+    <h2 id="devoured">Burgers Eaten</h2>
+    
+    <ul>
+        {{#each burgers}}
+            {{#if devoured}}
+                {{> burgers/burger_block devoured=false}}
+            {{/if}}
+        {{/each}}
+    </ul>
+</div>
 
-<h2>Order a Burger</h2>
-<form class="create-form">
-    <div class="form-group">
-        <label for="bur">Burger Name:</label>
-        <input type="text" id="bur" name="name">
-    </div>
-
-    <button type="submit">Add Order</button>
-</form>
+<footer></footer>
