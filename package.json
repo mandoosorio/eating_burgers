@@ -4,8 +4,10 @@
   "description": "A burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!). Following the MVC design pattern; using Node and MySQL to query and route data in the app, and Handlebars to generate HTML.",
   "main": "server.js",
   "scripts": {
+    "build": "concurrently \"cd client && npm run build\" \"npm build \"",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
